@@ -1,0 +1,27 @@
+{
+  "name": "gulp-boilerplate",
+  "version": "1.0.0",
+  "description": "Starting point for front end development based on libsass, npm, sass and best practices workflow and tools",
+  "homepage": "https://github.com/macmladen/gulp-boilerplate#readme",
+  "author": "Mladen Djuric (macmladen@gmail.com)",
+  "license": "GPL-2.0",
+  "main": "index.js",
+  "keywords": [
+    "gulp",
+    "sass",
+    "boilerplate",
+    "starter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macmladen/gulp-boilerplate.git",
+  },
+  "bugs": {
+    "url": "https://github.com/macmladen/gulp-boilerplate/issues",
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp-build": "gulp build --production"
+  }
+}
