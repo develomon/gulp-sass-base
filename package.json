@@ -5,7 +5,7 @@
   "homepage": "https://github.com/macmladen/gulp-boilerplate#readme",
   "author": "Mladen Djuric (macmladen@gmail.com)",
   "license": "GPL-2.0",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "keywords": [
     "gulp",
     "sass",
@@ -14,14 +14,25 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/macmladen/gulp-boilerplate.git",
+    "url": "git+https://github.com/macmladen/gulp-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/macmladen/gulp-boilerplate/issues",
+    "url": "https://github.com/macmladen/gulp-boilerplate/issues"
   },
   "scripts": {
     "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp-build": "gulp build --production"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "breakpoint-sass": "^2.6.1",
+    "compass-mixins": "^0.12.7",
+    "gulp": "^3.9.0",
+    "gulp-css-globbing": "^0.1.8",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "node-sass-asset-functions": "0.0.8",
+    "node-sass-import-once": "^1.2.0"
   }
 }

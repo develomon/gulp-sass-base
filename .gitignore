@@ -5,7 +5,10 @@
 # Modules and libraries folders - these are built with install procedure
 /node_modules
 /bower_components
+/vendor
 /test
 /tests
 
 .sass-cache
+css
+public
