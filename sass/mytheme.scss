@@ -1,0 +1,20 @@
+/* Include all libraries and own files */
+
+@import "vendor/compass-mixins/lib/compass";
+@import "breakpoint";
+
+/* Include my own Sass files */
+
+@import "colors";
+
+/* Starting Sass code */
+
+// This yields a gradient starting at the top with #fff, ending in #aaa
+@include breakpoint($tab) {
+  #v-gradient {
+    @include background-image(linear-gradient($white, $my-blue));
+  }
+}
+p {
+  color: red;
+}
