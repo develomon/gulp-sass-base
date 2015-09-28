@@ -1,6 +1,6 @@
 {
-  "name": "gulp-boilerplate",
-  "version": "0.3.0",
+  "name": "gulp-sass-legacy",
+  "version": "1.0.0",
   "description": "Starting point for front end development based on libsass, npm, sass and best practices workflow and tools",
   "homepage": "https://github.com/macmladen/gulp-boilerplate#readme",
   "author": "Mladen Djuric (macmladen@gmail.com)",
@@ -20,7 +20,6 @@
     "url": "https://github.com/macmladen/gulp-boilerplate/issues"
   },
   "scripts": {
-    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp-build": "gulp build --production"
   },
@@ -29,13 +28,11 @@
     "breakpoint-sass": "^2.6.1",
     "compass-mixins": "^0.12.7",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.2",
     "gulp-css-globbing": "^0.1.8",
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.5.2",
     "node-sass-asset-functions": "0.0.8",
     "node-sass-import-once": "^1.2.0",
-    "require-dir": "^0.3.0",
-    "sassdoc": "^2.1.15"
+    "susy": "^2.2.6"
   }
 }
