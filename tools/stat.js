@@ -1,28 +1,32 @@
-// This one is to check two generated files in css-ruby and css-node folders.
-// I am going just to count selectors, descriptors and rules,
-// which should give rough picture if they match.
-// for those I have globally installed:
-//   /usr/local/lib
-//   ├── analyze-css@0.10.1
-//   ├── bower@1.5.2
-//   ├── cssstats@2.1.0
-//   ├── generator-drupal-theme@0.1.7
-//   ├── grunt-cli@0.1.13
-//   ├── gulp@3.9.0
-//   ├── npm@2.14.3
-//   ├── speed-test@1.1.0
-//   ├── stylestats@5.4.3
-//   ├── yo@1.4.8
-//   └── yslow@3.1.0
+// A quick one to get file CSS stats
+// MacMladen (C) 2015
+// author: MacMladen <macmladen@gmail.com>
+// date: 2015-09-29
 
 var fs = require('fs');
 var cssstats = require('cssstats');
+
+if (process.argv.length != 3) {
+
+  console.log("This app requires just one argument.");
+  console.log("Usage:");
+  console.log("$ node tools/stat.js file-to-stat.css");
+  return 1;
+}
+
 var cssToStat = process.argv[2];
 
-var css = fs.readFileSync(cssToStat, 'utf8');
-var objNode = cssstats(css);
+try {
+  var cssFile = fs.readFileSync(cssToStat, 'utf8');
+}
+catch (e) {
+  console.log("File does not exist: ", cssToStat);
+  return 1;
+}
 
-//console.log(objRuby);
+var objNode = cssstats(cssFile);
+
+//console.log(objNode);   // if you wish to dump all properties
 
 delete objNode.selectors.values;
 delete objNode.selectors.getSpecificityGraph;

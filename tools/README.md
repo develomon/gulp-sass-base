@@ -5,8 +5,8 @@ These tools are meant to be used on command line directly. They are not sanitize
 They both should be used from project root:
 
 ```
-# Install cssstats globally
-npm install --global cssstats
+# Install cssstats
+npm install cssstats
 
 # compare new with old
 node tools/cmp.js public/css/main.css public/old/main.css
