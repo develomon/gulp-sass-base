@@ -1,6 +1,6 @@
 {
   "name": "gulp-boilerplate",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/macmladen/gulp-boilerplate#readme",
   "description": "Starting point for front end development based on libsass, npm, sass and best practices workflow and tools",
   "license": "GPL-2.0",
