@@ -6,8 +6,6 @@
 /node_modules
 /bower_components
 /vendor
-/test
-/tests
 
 .sass-cache
 css
