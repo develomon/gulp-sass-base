@@ -1,4 +1,4 @@
-# gulp-boilerplate
+# gulp-sass-base
 
 This is meant to be starting point for the modern front end development based on [node](http://nodejs.org/), [npm](http://npmjs.com/), [libsass](http://sass-lang.com/libsass), [node-sass](https://github.com/sass/node-sass), [gulp](gulpjs.com/) task runner, [sass](http://sass-lang.com/) and [best practices](http://sass-guidelin.es/) workflow and tools.
 
@@ -88,18 +88,9 @@ $ bower init
 $ npm init
 ```
 
-They will guide you through some basic question and generate empty, blank files that are ready to receive components or to be edited to accommodate your project. We have some basic version already included in our gulp-boilerplate which you may take directly if you **just want to compile** your own project.
+They will guide you through some basic question and generate empty, blank files that are ready to receive components or to be edited to accommodate your project. You do not need that here as those are already provided here.
 
-```bash
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/package.json
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/gulpfile.js
-
-# You may not need this two
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/bower.json
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/.bowerrc
-```
-
-Be aware that there are some differences between ruby and node requirements, imports, locations and configuration. It may take some time to make a shift and it may require reorganizing of your sass code. Your mileage may vary (considerably).
+If all you wish is just to try gulp/node workflow, just to compile your existing project, take a look into `legacy` [folder](legacy/README.md) and probably `tools` [folder](tools/README.md) that can check if you are getting the same from `ruby` and `node`.  
 
 ## Running `gulp` task runner
 
