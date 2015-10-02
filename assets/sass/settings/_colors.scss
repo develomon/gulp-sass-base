@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// - Color variables, use hsl, hsla color model
+// -----------------------------------------------------------------------------
+
+$white: hsl(0, 0, 100%);
+$black: hsl(0, 0, 0%);
+
+$my-blue: hsl(207, 58%, 57%);
+
+$tab: 768px;
+
+/// Copy text color
+/// @type Color
+$text-color: hsl(0, 0, 13%) !default;
+
+/// Main brand color
+/// @type Color
+$brand-color: hsl(339, 100%, 45%); !default;
+
+/// Light grey
+/// @type Color
+$light-grey: hsl(0, 0%, 93%) !default;
+
+/// Medium grey
+/// @type Color
+$mid-grey: hsl(0, 0%, 60%) !default;
+
+/// Dark grey
+/// @type Color
+$dark-grey: hsl(0, 0%, 27%); !default;
