@@ -1,4 +1,4 @@
-# gulp-boilerplate
+# gulp-sass-base
 
 This is meant to be starting point for the modern front end development based on [node](http://nodejs.org/), [npm](http://npmjs.com/), [libsass](http://sass-lang.com/libsass), [node-sass](https://github.com/sass/node-sass), [gulp](gulpjs.com/) task runner, [sass](http://sass-lang.com/) and [best practices](http://sass-guidelin.es/) workflow and tools.
 
@@ -109,7 +109,60 @@ This will list all globally installed npm packages (-g) that are available on th
 
 These may not be globally installed but that really helps shortening and simplifying commands. Some purists insist that **each** project is run in its own environment and its own local gulp and other dependencies. We don't insist on anything. Do it your way as long as it works for you.
 
-## Running `gulp` task runner
+## Setting up project
+
+This is meant to be boilerplate for new projects that are going to use node / gulp based workflow and some Sass guidelines.
+
+There are actually two ways you can use files found in this boilerplate:
+
+* In a legacy project
+* In new project based on these suggestions
+
+Both options assume that basic tools are already installed, the only difference is what going to be used and how. 
+
+### Using `legacy`
+
+If you have some project that is already developed and all you want is faster compiling or just testing how `gulp` and `libsass` are performing, all you have to do is to take files from `/legacy` folder and put them where `config.rb` file is or in parent folder of Sass and CSS.
+
+You need to install modules and to change `gulpfile.js` to fit your environment (source and target names) and options you need and to start compile or watch.
+
+```
+# Installing modules
+npm install
+
+# ...edit gulpfile.js
+
+# Compile Sass
+gulp sass
+
+# Watch for change and compile
+gulp
+```
+
+### Creating new project
+
+If you are starting a new project and want to embrace ideas and workflow presented here then you should write your Sass files in `assets/sass` folders and put fonts, media, icons into their folders.
+
+`gulp` will compile Sass, generate source maps, optimize images, inline fonts, resolve media urls, generate icon font and perform linting.
+
+Tasks are configured by default to take source from `assets` and to output to `public`.
+
+Steps are the same as in prevous step:
+
+```
+# Installing modules
+npm install
+
+# ...edit gulpfile.js
+
+# Compile Sass
+gulp sass
+
+# Watch for change and compile
+gulp
+```
+
+### Running `gulp` task runner
 
 `gulp` command is issued from the folder where `gulpfile.js` resides and it handels sources (assets) relatively to itself which can be read from `gulp-tasks/_config.js` and other files.
 
