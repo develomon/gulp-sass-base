@@ -36,6 +36,28 @@ This is **active** work in progress so expect agile additions to the whole front
 
 The whole system is console (terminal) based so usage assumes elementary skills, experience and understanding of terminal. One can just use commands described here but if anything goes off road, it will be bumpy.
 
+This repository should be the base of your project. As such it has some things you may not need so feel free to delete whatever you do not need.
+
+You need to `git clone https://github.com/macmladen/gulp-sass-base.git` **only** in case you want to work on this project, contribute. Otherwise you do not need branches and history of this project, so just download the archive and expand it.
+
+Where will you put it depends on you, put it where it fits best to your workflow.
+
+Folders:
+
+* `assets` this holds the sources to your project. That is **sass**, **js**, images and other source files that will be used by build system to produce development or production ready version that will be output in `public`.
+* `doc` will hold extensive documentation on general node, gulp, sass stuff, coding standards/recommendation, and current project documentation.
+* `gulp-tasks` have all available gulp tasks and their configurations separated into individual files. 
+* `legacy` holds **gulpfile.js** and its **package.json** which could be put into any legacy project which already has its own structure and was previously build with gem based tools. It should be capable to replace `compass compile` with `gulp sass` but project has to follow guidelines in its [README.md](legacy/README.md). 
+* `node_modules` will appear only after `npm install` and will hold node modules that are involved in build procedures by `gulp`. They should be excluded from git repository as they are build with each new project.
+* `public` will appear after first build by `gulp` to hold the result of build. It is also called **destination** folder or **dist**, meaning it holds actual HTML, CSS and other stuff that we build. 
+* `tools` have utilities that could help you in some tasks. At the moment there are two tools to evaluate and compare CSS files in order to check differences between `ruby` based build and `node`.
+* `vendor` will appear only after `bower` installs components, usually some CSS or JS libraries or other resources if needed. It is an source asset that could be used by build process or otherwise.
+* `.bowerrc` you could configure `bower` to use any folder you wish, if it is left it defaults to `bower_components`
+* `.gitignore` you should change it to suit your project
+* `bower.json` installs components you need. It could install it by `bower install` or as a part of `npm` post install script.
+* `gulpfile.js` just calls all tasks in `gulp-tasks` so it should not be changed. Make new or edit existing files in `gulp-tasks`
+* `package.json` holds modules list needed for project. If you need to add something new, the best way to do it is to use `npm install --save-dev your-favourite-module-on-npmjs
+
 ## Building environment
 
 ### Basic tools installation - `node` and `npm`
@@ -55,15 +77,23 @@ $ npm -v
 2.14.2
 ```
 
-Now that we have npm installed and tested, bower is installed with npm. **CAVEAT:** do not lose patience as bower may take quite some time to install. If you did managed with wget, that means internet connection is OK and it is just taking too long.
+Now that we have npm installed and tested, bower is installed with npm. You need bower only if there is a need for bower downloaded components, libraries or frameworks, otherwise you may skip this.
+
+**CAVEAT:** do not lose patience as bower may take quite some time to install. If you did managed with wget, that means internet connection is OK and it is just taking too long.
 
 ```
 $ sudo npm install --global bower
 ```
 
-npm packages can be installed globally (with -g when we must use sudo) or locally in ./node_modules. The main difference is that globally installed ones are those that are needed as command line tools such as bower, gulp, etc.
+`npm` packages can be installed **globally** (probably in `/usr/local/lib/node_modules/` with `-g` or `--global` when we must use sudo) or **locally** in `./node_modules`. The main difference is that globally installed ones are those that are needed as command line tools such as bower, gulp, etc.
 
-We will install just one more and that is gulp task runner also as global:
+Local installations may also be run with from `./node_modules/.bin/` so you can run local gulp (or other tools) with
+ 
+```
+./node_modules/.bin/gulp
+```
+
+We will install just one more and that is **gulp** task runner also as global for easier use:
 
 ```
 $ sudo npm install -g gulp
@@ -79,29 +109,20 @@ This will list all globally installed npm packages (-g) that are available on th
 
 These may not be globally installed but that really helps shortening and simplifying commands. Some purists insist that **each** project is run in its own environment and its own local gulp and other dependencies. We don't insist on anything. Do it your way as long as it works for you.
 
-### Environment setup
-
-The whole node/npm ecosystem is based on JSON data structures and Javascript code. The separation of concerns is that bower handles libraries while npm handles modules. They both have wizard that can make empty configuration file
-
-```
-$ bower init
-$ npm init
-```
-
-They will guide you through some basic question and generate empty, blank files that are ready to receive components or to be edited to accommodate your project. We have some basic version already included in our gulp-boilerplate which you may take directly if you **just want to compile** your own project.
-
-```bash
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/package.json
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/gulpfile.js
-
-# You may not need this two
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/bower.json
-wget --no-check-certificate https://raw.githubusercontent.com/macmladen/gulp-boilerplate/master/.bowerrc
-```
-
-Be aware that there are some differences between ruby and node requirements, imports, locations and configuration. It may take some time to make a shift and it may require reorganizing of your sass code. Your mileage may vary (considerably).
-
 ## Running `gulp` task runner
+
+`gulp` command is issued from the folder where `gulpfile.js` resides and it handels sources (assets) relatively to itself which can be read from `gulp-tasks/_config.js` and other files.
+
+`gulp` commands are defined in `gulp-tasks` files themselves in line
+
+```
+gulp.task('sass', function() {
+  ...
+```
+
+Currently we have `gulp sass`, task that just compiles and `gulp` that starts default task (in `_defaul.js`) which compiles and watch for changes.
+ 
+Other tasks will be added soon.
 
 ## Sass Boilerplate
 
@@ -109,12 +130,4 @@ This is a sample project using the [7-1 architecture pattern](http://sass-guidel
 
 Each folder of this project has its own `README.md` file to explain the purpose and add extra information. Be sure to browse the repository to see how it works.
 
-### Using the indented syntax
-
-This boilerplate does not provide a `.sass` version as it would be painful to maintain both versions without an appropriate build process. However, it is very easy to convert this boilerplate to Sass indented syntax.
-
-Clone it, head into the project and then run:
-
-```
-sass-convert -F sass -T scss -i -R ./ && find . -iname "*.sass" -exec bash -c 'mv "$0" "${0%\.sass}.scss"' {} \;
-```
+All Sass files are in `assets/sass` and compiles to `public/css` and that is configured at `gulp-tasks/_config.js`.
