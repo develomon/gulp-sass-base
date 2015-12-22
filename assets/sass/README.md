@@ -21,48 +21,47 @@ All the Sass files are separated in following folders, listed by significance, n
 * `settings` (originally **utils**) Just variables and initialization.
 * `tools` (originally **utils, vendors**) Vendor libraries and our own mixins
 * `base` (originally also **base** and/or _generic_ alt **elements**) Resets and elements styling 
-* `layout` (partially like _layout_) This is just for layout, maybe should be in base?
+* `global` (partially like _layout_) Global components that always appear on every page like **header** and **footer**
 * `components` Separate file for each component containing its styles
+* `components/vendors` Folder to include all vendor styles for libraries like swiper.js etc 
 * `pages` Overrides if some component on same page has some specifics
 * `theme` Overrides if some component should be different for some reason
-* ``
 
- This is where we will
+
 
 ### Sample directory content
 
 You files could be quite different, this is just to give you an idea and starting point, just remove, rename or rearrange what you think should be different for your particular project. If you have some more general idea that would apply universally, consider suggesting so in [issue queue](https://github.com/macmladen/gulp-sass-base/issues). 
-
-@MacMladen suggestion:
 
 ```
 sass/
 |
 |– settings/           ### Sass Variables
 |   |– _init.scss        # Initialization of projects, mixins, libraries
-|   |– _layout.scss      # Layout sizes and breakpoints
+|   |– _breakpoints.scss # Breakpoints and everything media queries related
 |   |– _color.scss       # All used colors
 |   |– _typography.scss  # Everything typography related
+|   |– _variables.scss   # Maybe other unrelated and useful variables 
 |   ...                  # Etc…
 |
 |– tools/              ### Sass Abstracts not producing anything
-|   |– _mixins-1.scss    # Vendor Mixins 1
-|   |– _mixins-2.scss    # Vendor Mixins 2
 |   |– _functions.scss   # Own Sass Functions
 |   |– _mixins.scss      # Own Sass Mixins
-|   |– _helpers.scss     # Class & placeholders helpers
+|   |– _placeholderss.scss # Own Sass placeholders
+|   |– _mixins-1.scss    # Vendor Mixins 1 (not producing code)
+|   |– _mixins-2.scss    # Vendor Mixins 2 (not producing code)
 |   ...                  # Etc…
 |
 |– base/               ### Resets and elements styling
 |   |– _normalize.scss   # Reset/normalize (making sure we are all on the same page)
-|   |– _bootstrap.scss   # Bootstrap (vendor library producing code)
-|   |– _jquery-ui.scss   # jQuery UI (vendor library producing code)
+|   |– _base.scss        # Very basic styles html, body and * general selector
 |   |– _elements.scss    # Base elements rules, maybe separated according to function
-|   ...                  # Etc…
-|
-|– layout/             ### Not sure if it should be in base
+|   |– _helpers.scss     # Various class helpers
+|   |– _fonts.scss       # Fonts imports if they are done in CSS, JS may be preferrable 
+|   |– _typography.scss  # Basic elemental typography styling
 |   |– _layout.scss      # just layout positioning, no makeup
 |   |– _grid.scss        # Grid system (not really a fun, but...)
+|   ...                  # Etc…
 |
 |– global/             ### Components that are on all pages
 |   |– _navigation.scss  # Navigation
@@ -72,6 +71,8 @@ sass/
 |   ...                  # Etc…
 |
 |– components/         ### All components, blocks everything
+|   |– _bootstrap.scss   # Bootstrap (vendor library producing code)
+|   |– _jquery-ui.scss   # jQuery UI (vendor library producing code)
 |   |– _forms.scss       # Forms
 |   |– _buttons.scss     # Buttons
 |   |– _carousel.scss    # Carousel
@@ -88,57 +89,6 @@ sass/
 |   |– _theme.scss       # Default theme
 |   |– _admin.scss       # Admin theme
 |   ...                  # Etc…
-|
-`– main.scss             # Main Sass file
-```
-
-Original Sass-boilerplate suggestion
-
-```
-sass/
-|
-|– base/
-|   |– _reset.scss       # Reset/normalize
-|   |– _typography.scss  # Typography rules
-|   ...                  # Etc…
-|
-|– components/
-|   |– _buttons.scss     # Buttons
-|   |– _carousel.scss    # Carousel
-|   |– _cover.scss       # Cover
-|   |– _dropdown.scss    # Dropdown
-|   ...                  # Etc…
-|
-|– layout/
-|   |– _navigation.scss  # Navigation
-|   |– _grid.scss        # Grid system
-|   |– _header.scss      # Header
-|   |– _footer.scss      # Footer
-|   |– _sidebar.scss     # Sidebar
-|   |– _forms.scss       # Forms
-|   ...                  # Etc…
-|
-|– pages/
-|   |– _home.scss        # Home specific styles
-|   |– _contact.scss     # Contact specific styles
-|   ...                  # Etc…
-|
-|– themes/
-|   |– _theme.scss       # Default theme
-|   |– _admin.scss       # Admin theme
-|   ...                  # Etc…
-|
-|– utils/
-|   |– _variables.scss   # Sass Variables
-|   |– _functions.scss   # Sass Functions
-|   |– _mixins.scss      # Sass Mixins
-|   |– _helpers.scss     # Class & placeholders helpers
-|
-|– vendors/
-|   |– _bootstrap.scss   # Bootstrap
-|   |– _jquery-ui.scss   # jQuery UI
-|   ...                  # Etc…
-|
 |
 `– main.scss             # Main Sass file
 ```

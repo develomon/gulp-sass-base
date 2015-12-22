@@ -10,7 +10,7 @@ You may download or clone the whole repository, delete items you do not need or 
 
 This work borrows heavily from many other fine knights all around the world and I will try to reference everything in the document and in reference section at the end. If someone is missing or should be added, do not hesitate to raise the issue.
 
-This is **active** work in progress so expect agile additions to the whole front end war chest meant to improve quality and speed of average front end John Doe. 
+This is **active** work in progress so expect agile additions to the whole front end war chest meant to improve quality and speed of average front end John Doe.
 
 ## Terms
 
@@ -21,8 +21,8 @@ This is **active** work in progress so expect agile additions to the whole front
 **module** application with its dependencies that is installed, used by and run by node and npm according to it's own settings and `package.json`. The folder `node_modules` is **obligatory** location.
 
 **(whatever)-sass** are various `sass` wrappers that wrap libraries that compile `.sass` files to `.css`.
- 
-**libsass** is core **sass** library written and compiled as library in C. It does not work by itself. You may use and build `sassc` wrapper for command line which is useful to check if something is bad in your code or it is a `node-sass` bug. 
+
+**libsass** is core **sass** library written and compiled as library in C. It does not work by itself. You may use and build `sassc` wrapper for command line which is useful to check if something is bad in your code or it is a `node-sass` bug.
 
 **node-sass** is wrapper that compiles `.sass` files to `.css` but is quite limited.
 
@@ -46,10 +46,10 @@ Folders:
 
 * `assets` this holds the sources to your project. That is **sass**, **js**, images and other source files that will be used by build system to produce development or production ready version that will be output in `public`.
 * `doc` will hold extensive documentation on general node, gulp, sass stuff, coding standards/recommendation, and current project documentation.
-* `gulp-tasks` have all available gulp tasks and their configurations separated into individual files. 
-* `legacy` holds **gulpfile.js** and its **package.json** which could be put into any legacy project which already has its own structure and was previously build with gem based tools. It should be capable to replace `compass compile` with `gulp sass` but project has to follow guidelines in its [README.md](legacy/README.md). 
+* `gulp-tasks` have all available gulp tasks and their configurations separated into individual files.
+* `legacy` holds **gulpfile.js** and its **package.json** which could be put into any legacy project which already has its own structure and was previously build with gem based tools. It should be capable to replace `compass compile` with `gulp sass` but project has to follow guidelines in its [README.md](legacy/README.md).
 * `node_modules` will appear only after `npm install` and will hold node modules that are involved in build procedures by `gulp`. They should be excluded from git repository as they are build with each new project.
-* `public` will appear after first build by `gulp` to hold the result of build. It is also called **destination** folder or **dist**, meaning it holds actual HTML, CSS and other stuff that we build. 
+* `public` will appear after first build by `gulp` to hold the result of build. It is also called **destination** folder or **dist**, meaning it holds actual HTML, CSS and other stuff that we build.
 * `tools` have utilities that could help you in some tasks. At the moment there are two tools to evaluate and compare CSS files in order to check differences between `ruby` based build and `node`.
 * `vendor` will appear only after `bower` installs components, usually some CSS or JS libraries or other resources if needed. It is an source asset that could be used by build process or otherwise.
 * `.bowerrc` you could configure `bower` to use any folder you wish, if it is left it defaults to `bower_components`
@@ -69,12 +69,12 @@ On Mac, you just go to home page https://nodejs.org/en/ where you will be offere
 Default installation (apt-get) for Linux is based on outdated version of node so the best route is to fetch latest version and install manually:
 
 ```
-$ wget https://nodejs.org/download/release/latest/node-v4.0.0-linux-x64.tar.gz
-$ sudo tar -C /usr/local --strip-components 1 -xzf node-v4.0.0-linux-x64
+$ wget --no-check-certificate https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz
+$ sudo tar -C /usr/local --strip-components 1 -xzf node-v4.2.3-linux-x64.tar.gz
 $ node -v
-v4.0.0
+v4.2.3
 $ npm -v
-2.14.2
+2.14.7
 ```
 
 Now that we have npm installed and tested, bower is installed with npm. You need bower only if there is a need for bower downloaded components, libraries or frameworks, otherwise you may skip this.
@@ -88,7 +88,7 @@ $ sudo npm install --global bower
 `npm` packages can be installed **globally** (probably in `/usr/local/lib/node_modules/` with `-g` or `--global` when we must use sudo) or **locally** in `./node_modules`. The main difference is that globally installed ones are those that are needed as command line tools such as bower, gulp, etc.
 
 Local installations may also be run with from `./node_modules/.bin/` so you can run local gulp (or other tools) with
- 
+
 ```
 ./node_modules/.bin/gulp
 ```
@@ -118,7 +118,7 @@ There are actually two ways you can use files found in this boilerplate:
 * In a legacy project
 * In new project based on these suggestions
 
-Both options assume that basic tools are already installed, the only difference is what going to be used and how. 
+Both options assume that basic tools are already installed, the only difference is what going to be used and how.
 
 ### Using `legacy`
 
@@ -174,7 +174,7 @@ gulp.task('sass', function() {
 ```
 
 Currently we have `gulp sass`, task that just compiles and `gulp` that starts default task (in `_defaul.js`) which compiles and watch for changes.
- 
+
 Other tasks will be added soon.
 
 ## Sass Boilerplate
