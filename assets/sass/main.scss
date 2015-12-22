@@ -1,10 +1,11 @@
 @charset 'UTF-8';
 
-// 1. Vendors
+// 1. Settings and configuration
 @import
+  'settings/**/*';
   'vendor/normalize';
 
-// 2. Configuration and helpers
+// 2. and helpers
 @import
   'utils/variables',
   'utils/functions',
@@ -28,8 +29,8 @@
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/**/*';
 
 // 7. Themes
 @import
-  'themes/default';
+  'themes/**/*';
